@@ -2,14 +2,30 @@
 
 @section('content')
 
-    <h1>id: {{ $tasklist->id }} のメッセージ編集ページedit.blade.php</h1>
+
+<!--@if (count($errors) > 0)
+        <ul class="alert alert-danger" role="alert">
+            @foreach ($errors->all() as $error)
+                <li class="ml-4">{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif-->
+
+    <h1>id: {{ $tasklist->id }} のタスク編集ページedit.blade.php</h1>
 
     <div class="row">
         <div class="col-6">
             {!! Form::model($tasklist, ['route' => ['tasks.update', $tasklist->id], 'method' => 'put']) !!}
         
                 <div class="form-group">
-                    {!! Form::label('content', 'メッセージ:') !!}
+                    {!! Form::label('status', 'ステータス:') !!}
+                    {!! Form::text('title', null, ['class' => 'form-control']) !!}
+                </div>
+        
+        
+        
+                <div class="form-group">
+                    {!! Form::label('content', 'タスク:') !!}
                     {!! Form::text('content', null, ['class' => 'form-control']) !!}
                 </div>
         
